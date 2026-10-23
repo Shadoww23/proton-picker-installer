@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Proton Picker Setup
+Comment=Install, update, or remove Proton Picker
+Exec=proton-picker-setup
+Icon=proton-picker-setup
+Terminal=false
+Categories=Utility;Game;
+Keywords=Proton;Steam;Picker;

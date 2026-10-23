@@ -1,0 +1,6 @@
+dist/
+build/appdir/
+build/icon.png
+build/proton-picker-setup/
+__pycache__/
+*.pyc
