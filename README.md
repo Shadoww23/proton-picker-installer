@@ -34,6 +34,22 @@ On systems without FUSE, run:
 ./ProtonPickerSetup-0.1.1-x86_64.AppImage --appimage-extract-and-run
 ```
 
+### Debian/Ubuntu and Fedora
+
+Native packages install the same setup window and add a desktop entry. They use
+the system Python 3.10+ and Tk, so they are smaller than the AppImage:
+
+```sh
+# Debian/Ubuntu
+sudo apt install ./proton-picker-setup_0.1.1-1_amd64.deb
+
+# Fedora
+sudo dnf install ./proton-picker-setup-0.1.1-1.x86_64.rpm
+```
+
+The AppImage remains the portable option for older distributions and SteamOS
+desktop mode.
+
 ## Requirements
 
 - x86_64 desktop Linux with glibc 2.31 or newer
@@ -51,7 +67,16 @@ Docker or Podman is required.
 ```
 
 Output: `dist/ProtonPickerSetup-<version>-x86_64.AppImage` and `dist/SHA256SUMS`.
-The workflow in `.github/workflows/build.yml` produces the same artifact.
+The workflow in `.github/workflows/ci.yml` produces the same artifact.
+
+Build the Debian and RPM packages with [nfpm](https://nfpm.goreleaser.com/install/):
+
+```sh
+NFPM=/path/to/nfpm ./build/build_packages.sh
+```
+
+Output: `dist/packages/*.deb`, `dist/packages/*.rpm`, and
+`dist/packages/SHA256SUMS-packages`.
 
 Tests:
 

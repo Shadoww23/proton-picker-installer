@@ -1,0 +1,29 @@
+name: proton-picker-setup
+arch: amd64
+platform: linux
+version: __VERSION__
+release: "1"
+section: utils
+priority: optional
+maintainer: Shadoww23 <shadoww23@users.noreply.github.com>
+description: |
+  Double-click setup for Proton Picker.
+  Checks for native Steam and Python 3.10+, downloads the official Proton
+  Picker archive, verifies its pinned SHA-256, and runs the official installer
+  or uninstaller. No administrator password is needed after installation.
+vendor: Brlinkin
+homepage: https://github.com/Shadoww23/proton-picker-installer
+license: MIT
+overrides:
+  deb:
+    depends:
+      - python3 (>= 3.10)
+      - python3-tk
+  rpm:
+    depends:
+      - python3 >= 3.10
+      - python3-tkinter
+contents:
+  - src: build/pkgroot/usr
+    dst: /usr
+    type: tree
