@@ -133,9 +133,11 @@ class SteamTests(unittest.TestCase):
 
 
 class RunTests(unittest.TestCase):
-    def test_python_is_ready_here(self):
+    def test_python_readiness_matches_version(self):
         python = core.find_python()
-        self.assertTrue(core.python_ready(python))
+        version = core.python_version(python)
+        self.assertIsNotNone(version)
+        self.assertEqual(core.python_ready(python), version >= core.PICKER_MIN_PYTHON)
 
     def test_download_from_file_url(self):
         with tempfile.TemporaryDirectory() as temp:
