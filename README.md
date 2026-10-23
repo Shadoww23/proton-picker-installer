@@ -19,7 +19,7 @@ release URL.
 
 ## Install
 
-1. Download `ProtonPickerSetup-0.1.0-x86_64.AppImage` from the
+1. Download `ProtonPickerSetup-0.1.1-x86_64.AppImage` from the
    [releases page](https://github.com/Shadoww23/proton-picker-installer/releases).
 2. Make it executable: right-click → Properties → Permissions → **Allow executing file
    as a program**, or run `chmod +x ProtonPickerSetup-*.AppImage`.
@@ -31,7 +31,7 @@ asks to close it first (save your game). After setup, start Steam and click Play
 On systems without FUSE, run:
 
 ```sh
-./ProtonPickerSetup-0.1.0-x86_64.AppImage --appimage-extract-and-run
+./ProtonPickerSetup-0.1.1-x86_64.AppImage --appimage-extract-and-run
 ```
 
 ## Requirements

@@ -18,7 +18,7 @@ import urllib.request
 from pathlib import Path
 from typing import Callable, Optional
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 PICKER_VERSION = "0.1.0-alpha"
 ARCHIVE_NAME = "ProtonPicker-{}.tar.gz".format(PICKER_VERSION)
 ARCHIVE_URL = (

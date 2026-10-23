@@ -187,15 +187,12 @@ class App:
                     text="Flatpak Steam found. This alpha only supports native Steam.",
                     foreground=ERROR,
                 )
-                self._set_install_enabled(False)
             else:
                 self.steam_label.configure(text=where, foreground=OK)
-                self._set_install_enabled(True)
         else:
             self.steam_label.configure(
                 text="Not found. Install Steam, then reopen this setup.", foreground=ERROR
             )
-            self._set_install_enabled(False)
 
         version = core.python_version(self.python) if self.python else None
         if core.python_ready(self.python):
@@ -209,7 +206,6 @@ class App:
                 ),
                 foreground=ERROR,
             )
-            self._set_install_enabled(False)
 
         if self.installed:
             self.picker_label.configure(
@@ -222,6 +218,13 @@ class App:
             self.picker_label.configure(text="Not installed", foreground=MUTED)
             self.install_button.configure(text="Install Proton Picker")
             self.uninstall_button.configure(state="disabled")
+
+        can_install = (
+            bool(self.steam_root)
+            and not core.is_flatpak_steam(self.steam_root)
+            and core.python_ready(self.python)
+        )
+        self._set_install_enabled(can_install)
 
         if core.steam_running():
             self.status.configure(text="Steam is open. Setup will ask to close it.")
